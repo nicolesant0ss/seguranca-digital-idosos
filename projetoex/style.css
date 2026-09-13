@@ -1,0 +1,787 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Lora:wght@500;700&display=swap');
+
+:root {
+  --azul-claro: #ADD8E6;
+  --azul-claro-suave: #CFE9F1;
+  --marinho: #141D29;
+  --vermelho: #D91E1E;
+  --vermelho-escuro: #A81616;
+  --branco: #FFFFFF;
+  --cinza-borda: #D8E3E7;
+  --cinza-texto: #2A3A45;
+
+  --fonte-titulo: 'Lora', Georgia, serif;
+  --fonte-corpo: 'Atkinson Hyperlegible', Arial, sans-serif;
+
+  --tamanho-corpo: 1.3rem;
+  --altura-linha: 1.75;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--fonte-corpo);
+  font-size: var(--tamanho-corpo);
+  line-height: var(--altura-linha);
+  color: var(--marinho);
+  background: var(--azul-claro);
+}
+
+img { max-width: 100%; display: block; }
+
+/* Foco visível para navegação por teclado — essencial p/ acessibilidade */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--vermelho);
+  outline-offset: 3px;
+}
+
+/* Link para pular direto ao conteúdo (leitor de tela / teclado) */
+.pular-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--branco);
+  color: var(--marinho);
+  padding: 12px 20px;
+  z-index: 100;
+  border-radius: 0 0 8px 0;
+}
+.pular-link:focus {
+  left: 0;
+}
+
+/* ---------- Cabeçalho ---------- */
+.cabecalho {
+  background: var(--marinho);
+  color: var(--branco);
+  padding: 18px 24px;
+}
+
+.cabecalho-conteudo {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-family: var(--fonte-titulo);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--branco);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo span.icone {
+  font-size: 1.6rem;
+}
+
+.navegacao {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.navegacao a {
+  color: var(--branco);
+  text-decoration: none;
+  font-size: 1.15rem;
+  padding: 14px 20px;
+  border-radius: 10px;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+}
+
+.navegacao a:hover,
+.navegacao a:focus-visible {
+  background: rgba(255,255,255,0.15);
+}
+
+/* ---------- Faixa de estatísticas rápidas (hero) ---------- */
+.badges-rapidos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.badge-rapido {
+  background: var(--branco);
+  border-radius: 12px;
+  padding: 14px 20px;
+  box-shadow: 0 2px 10px rgba(20,29,41,0.08);
+  text-align: center;
+  min-width: 150px;
+}
+
+.badge-rapido .numero-grande {
+  font-family: var(--fonte-titulo);
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--vermelho-escuro);
+  display: block;
+}
+
+.badge-rapido .legenda-badge {
+  font-size: 1rem;
+  color: var(--marinho);
+}
+
+/* ---------- Gráficos de barra (dados da pesquisa) ---------- */
+.grafico-barras {
+  margin-top: 16px;
+}
+
+.grafico-linha {
+  margin-bottom: 22px;
+}
+
+.grafico-linha .grafico-rotulo {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.grafico-linha .grafico-rotulo .valor {
+  font-weight: 700;
+  color: var(--marinho);
+}
+
+.grafico-trilha {
+  background: var(--azul-claro-suave);
+  border-radius: 10px;
+  height: 28px;
+  overflow: hidden;
+}
+
+.grafico-preenchimento {
+  height: 100%;
+  background: var(--marinho);
+  border-radius: 10px 0 0 10px;
+}
+
+.grafico-linha.destaque .grafico-preenchimento {
+  background: var(--vermelho);
+}
+
+.grafico-fonte {
+  font-size: 0.95rem;
+  color: var(--cinza-texto);
+  margin-top: 14px;
+  line-height: 1.6;
+}
+
+  .badge-fonte {
+  font-size: 0.95rem;
+  color: var(--cinza-texto);
+  margin-top: 14px;
+  line-height: 1.6;
+}
+
+.duas-colunas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.duas-colunas > .cartao {
+  flex: 1 1 320px;
+  margin-bottom: 0;
+}
+
+/* ---------- Cartão da persona ---------- */
+.persona-cartao {
+  background: var(--branco);
+  border-radius: 18px;
+  padding: 32px;
+  box-shadow: 0 4px 16px rgba(20,29,41,0.1);
+  margin-top: 24px;
+}
+
+/* Imagem de exemplo do golpe na persona */
+.persona-exemplo-golpe {
+  margin: 24px 0;
+  text-align: center;
+}
+
+.persona-exemplo-golpe img {
+  max-width: 50%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(20,29,41,0.15);
+  display: block;
+  margin: 0 auto;
+}
+
+.persona-cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.persona-avatar {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: var(--azul-claro-suave);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.6rem;
+  flex-shrink: 0;
+}
+
+.persona-nome {
+  font-family: var(--fonte-titulo);
+  font-size: 1.5rem;
+  margin: 0 0 4px;
+}
+
+.persona-tag {
+  display: inline-block;
+  background: var(--azul-claro-suave);
+  color: var(--marinho);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.persona-nota {
+  font-size: 1rem;
+  color: var(--cinza-texto);
+  margin-top: 24px;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* ---------- Linha do tempo — fases do golpe ---------- */
+.linha-tempo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-top: 28px;
+  counter-reset: fase;
+}
+
+.fase-item {
+  flex: 1 1 180px;
+  background: var(--branco);
+  border-radius: 14px;
+  padding: 22px 18px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(20,29,41,0.07);
+  position: relative;
+  margin: 8px;
+  border-top: 5px solid var(--marinho);
+}
+
+.fase-item:nth-child(5) {
+  border-top-color: var(--vermelho);
+}
+
+.fase-item .fase-numero {
+  counter-increment: fase;
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  color: var(--vermelho-escuro);
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.fase-item .fase-numero::before {
+  content: "Fase " counter(fase) " · ";
+}
+
+.fase-item h3 {
+  font-family: var(--fonte-titulo);
+  font-size: 1.08rem;
+  margin: 0 0 8px;
+}
+
+.fase-item p {
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+/* ---------- Jornada de prevenção (6 passos) ---------- */
+.jornada-grade {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.jornada-passo {
+  flex: 1 1 260px;
+  background: var(--branco);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(20,29,41,0.07);
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.jornada-passo .jornada-numero {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--vermelho);
+  color: var(--branco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+}
+
+.jornada-passo h3 {
+  font-family: var(--fonte-titulo);
+  font-size: 1.05rem;
+  margin: 0 0 4px;
+}
+
+.jornada-passo p {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+/* ---------- Onde denunciar ---------- */
+.lista-denuncia {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.lista-denuncia li {
+  flex: 1 1 240px;
+  background: var(--branco);
+  border-radius: 14px;
+  padding: 18px 20px;
+  box-shadow: 0 2px 10px rgba(20,29,41,0.07);
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.lista-denuncia .icone-denuncia {
+  font-size: 1.5rem;
+}
+
+/* ---------- Nota de transparência / metodologia ---------- */
+.nota-metodologica {
+  background: var(--azul-claro-suave);
+  border-radius: 16px;
+  padding: 28px 30px;
+  margin-top: 24px;
+  font-size: 1.05rem;
+  color: var(--cinza-texto);
+  line-height: 1.7;
+}
+
+.nota-metodologica h3 {
+  font-family: var(--fonte-titulo);
+  margin: 0 0 14px;
+  font-size: 1.2rem;
+}
+
+ .lista-referencias {
+  margin: 14px 0 0;
+  padding-left: 26px;
+  font-size: 1rem;
+  color: var(--cinza-texto);
+  line-height: 1.7;
+}
+
+ .lista-referencias li {
+  margin-bottom: 8px;
+}
+
+/* ---------- Seção principal (hero) ---------- */
+.hero {
+  padding: 56px 24px 64px;
+  text-align: center;
+}
+
+.hero-conteudo {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.9rem, 4vw, 2.7rem);
+  line-height: 1.25;
+  margin: 0 0 20px;
+  color: var(--marinho);
+}
+
+.hero p.subtitulo {
+  font-size: 1.25rem;
+  margin: 0 0 32px;
+  color: var(--marinho);
+}
+
+.estatistica-destaque {
+  background: var(--branco);
+  border-left: 6px solid var(--vermelho);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 0 0 36px;
+  text-align: left;
+  box-shadow: 0 2px 10px rgba(20,29,41,0.08);
+}
+
+.estatistica-destaque strong {
+  font-family: var(--fonte-titulo);
+  font-size: 1.3rem;
+  display: block;
+  margin-bottom: 6px;
+  color: var(--vermelho-escuro);
+}
+
+/* ---------- Botões ---------- */
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 56px;
+  padding: 14px 32px;
+  font-family: var(--fonte-corpo);
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.botao-primario {
+  background: var(--vermelho);
+  color: var(--branco);
+}
+.botao-primario:hover,
+.botao-primario:focus-visible {
+  background: var(--vermelho-escuro);
+}
+.botao-primario:active {
+  transform: scale(0.98);
+}
+
+.botao-secundario {
+  background: var(--branco);
+  color: var(--marinho);
+  border: 2px solid var(--marinho);
+}
+.botao-secundario:hover,
+.botao-secundario:focus-visible {
+  background: var(--azul-claro-suave);
+}
+
+/* ---------- Seções de conteúdo ---------- */
+.secao {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+.secao h2 {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  margin: 0 0 24px;
+  color: var(--marinho);
+}
+
+/* Seções com fundo branco e cantos arredondados */
+.secao--fundo-branco {
+  background: var(--branco);
+  border-radius: 20px;
+}
+
+/* Seções com fundo azul suave e cantos arredondados */
+.secao--fundo-azul-suave {
+  background: var(--azul-claro-suave);
+  border-radius: 20px;
+}
+
+.cartao {
+  background: var(--branco);
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 2px 10px rgba(20,29,41,0.07);
+  margin-bottom: 20px;
+}
+
+/* Cartão com fundo azul suave */
+.cartao--fundo-azul-suave {
+  background: var(--azul-claro-suave);
+  color: var(--cinza-texto);
+}
+
+/* Cartão com margem superior para separação visual */
+.cartao--margin-top {
+  margin-top: 32px;
+}
+
+/* Título com margem extra para a jornada */
+.espacamento-jornada {
+  font-family: var(--fonte-titulo);
+  margin-top: 40px;
+}
+
+/* Títulos de cartão padronizados */
+.cartao h3 {
+  font-family: var(--fonte-titulo);
+  margin-top: 0;
+}
+
+/* ---------- Sequência "Pare → Verifique → Converse → Decida" ---------- */
+.sequencia {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.sequencia-passo {
+  background: var(--branco);
+  border-radius: 14px;
+  padding: 22px 16px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(20,29,41,0.07);
+  flex: 1 1 200px;
+}
+
+.sequencia-passo .numero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--marinho);
+  color: var(--branco);
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.sequencia-passo h3 {
+  font-family: var(--fonte-titulo);
+  font-size: 1.15rem;
+  margin: 0 0 8px;
+}
+
+.sequencia-passo p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.seta-sequencia {
+  display: none;
+}
+
+/* ---------- Grade de sinais de alerta ---------- */
+.grade-sinais {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.sinal-cartao {
+  background: var(--branco);
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 2px 10px rgba(20,29,41,0.07);
+  border-top: 5px solid var(--vermelho);
+  flex: 1 1 280px;
+}
+
+.sinal-cartao .icone-sinal {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.sinal-cartao h3 {
+  font-family: var(--fonte-titulo);
+  font-size: 1.15rem;
+  margin: 0 0 8px;
+}
+
+.sinal-cartao p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* ---------- Faixa de chamada para o quiz ---------- */
+.faixa-cta {
+  background: var(--marinho);
+  color: var(--branco);
+  text-align: center;
+  padding: 56px 24px;
+}
+
+.faixa-cta h2 {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.6rem, 3.5vw, 2.1rem);
+  margin: 0 0 16px;
+  color: var(--branco);
+}
+
+.faixa-cta p {
+  font-size: 1.15rem;
+  max-width: 620px;
+  margin: 0 auto 28px;
+}
+
+/* ---------- Rodapé / Autores ---------- */
+.rodape {
+  background: #0D1420;
+  color: var(--branco);
+  padding: 40px 24px;
+}
+
+.rodape-conteudo {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.rodape h2 {
+  font-family: var(--fonte-titulo);
+  font-size: 1.3rem;
+  margin: 0 0 18px;
+  color: var(--branco);
+}
+
+.lista-autores {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 26px;
+  font-size: 1rem;
+}
+
+.lista-autores li strong {
+  color: var(--branco);
+}
+.lista-autores li {
+  color: #C9D3DC;
+  margin: 4px 13px;
+}
+
+.rodape-nota {
+  font-size: 0.95rem;
+  color: #9FADB8;
+  margin: 0;
+}
+
+/* ---------- Responsivo: celular ---------- */
+@media (max-width: 720px) {
+  .navegacao {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .sequencia {
+    flex-direction: column;
+  }
+  .sequencia .sequencia-passo {
+    flex: 0 1 auto;
+  }
+
+  .grade-sinais {
+    flex-direction: column;
+  }
+  .grade-sinais .sinal-cartao {
+    flex: 0 1 auto;
+  }
+
+  .duas-colunas {
+    flex-direction: column;
+  }
+  .duas-colunas > .cartao {
+    flex: 0 1 auto;
+  }
+
+  .persona-cabecalho {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .persona-grade {
+    flex-direction: column;
+  }
+  .persona-grade .persona-bloco {
+    flex: 0 1 auto;
+  }
+
+  .linha-tempo {
+    flex-direction: column;
+  }
+  .fase-item {
+    margin: 6px 0;
+    flex: 0 1 auto;
+  }
+
+  .jornada-grade {
+    flex-direction: column;
+  }
+  .jornada-grade .jornada-passo {
+    flex: 0 1 auto;
+  }
+
+  .lista-denuncia {
+    flex-direction: column;
+  }
+  .lista-denuncia li {
+    flex: 0 1 auto;
+  }
+
+  .badges-rapidos {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .secao {
+    padding: 36px 18px;
+  }
+
+  .hero {
+    padding: 40px 18px 48px;
+  }
+}
+
+/* Respeita preferência do usuário por menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
