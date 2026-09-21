@@ -714,8 +714,8 @@ button:focus-visible {
   }
 
   .imagem-hq-quiz {
-    width: 560px;
-    max-width: none;
+    width: 100%;
+    max-width: 464px;
     margin-left: 0;
     margin-right: 0;
   }
@@ -806,36 +806,14 @@ button:focus-visible {
   transition: width 0.3s ease;
 }
 
-.imagem-quiz-wrapper {
-  width: 100%;
-  max-width: 560px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  margin: 0 auto 22px;
-}
-
-.imagem-quiz-wrapper::-webkit-scrollbar {
-  height: 8px;
-}
-
-.imagem-quiz-wrapper::-webkit-scrollbar-thumb {
-  background: var(--azul-claro);
-  border-radius: 4px;
-}
-
-.imagem-quiz-wrapper::-webkit-scrollbar-track {
-  background: var(--cinza-borda);
-  border-radius: 4px;
-}
-
 .imagem-hq-quiz {
-  width: 560px;
+  width: 100%;
+  max-width: 464px;
   height: auto;
   border-radius: 14px;
   display: block;
-  margin: 0;
+  margin: 0 auto 22px;
   border: 1px solid var(--cinza-borda);
-  flex-shrink: 0;
 }
 
 .cena-personagem {
