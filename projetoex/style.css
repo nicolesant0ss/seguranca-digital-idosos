@@ -1,3 +1,8 @@
+/* ===========================================================
+   Golpe do Amor — Módulo Educativo — Squad 5
+   Paleta: azul claro (fundo), azul-marinho (texto), vermelho (destaque)
+   =========================================================== */
+
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Lora:wght@500;700&display=swap');
 
 :root {
@@ -8,13 +13,12 @@
   --vermelho-escuro: #A81616;
   --branco: #FFFFFF;
   --cinza-borda: #D8E3E7;
-  --cinza-texto: #2A3A45;
 
   --fonte-titulo: 'Lora', Georgia, serif;
   --fonte-corpo: 'Atkinson Hyperlegible', Arial, sans-serif;
 
-  --tamanho-corpo: 1.3rem;
-  --altura-linha: 1.75;
+  --tamanho-corpo: 1.19rem;
+  --altura-linha: 1.7;
 }
 
 * { box-sizing: border-box; }
@@ -95,10 +99,10 @@ button:focus-visible {
 .navegacao a {
   color: var(--branco);
   text-decoration: none;
-  font-size: 1.15rem;
-  padding: 14px 20px;
-  border-radius: 10px;
-  min-height: 52px;
+  font-size: 1.05rem;
+  padding: 10px 16px;
+  border-radius: 8px;
+  min-height: 44px;
   display: flex;
   align-items: center;
 }
@@ -135,24 +139,24 @@ button:focus-visible {
 }
 
 .badge-rapido .legenda-badge {
-  font-size: 1rem;
+  font-size: 0.92rem;
   color: var(--marinho);
 }
 
 /* ---------- Gráficos de barra (dados da pesquisa) ---------- */
 .grafico-barras {
-  margin-top: 16px;
+  margin-top: 10px;
 }
 
 .grafico-linha {
-  margin-bottom: 22px;
+  margin-bottom: 16px;
 }
 
 .grafico-linha .grafico-rotulo {
   display: flex;
   justify-content: space-between;
-  font-size: 1.1rem;
-  margin-bottom: 8px;
+  font-size: 1rem;
+  margin-bottom: 6px;
 }
 
 .grafico-linha .grafico-rotulo .valor {
@@ -162,15 +166,15 @@ button:focus-visible {
 
 .grafico-trilha {
   background: var(--azul-claro-suave);
-  border-radius: 10px;
-  height: 28px;
+  border-radius: 8px;
+  height: 22px;
   overflow: hidden;
 }
 
 .grafico-preenchimento {
   height: 100%;
   background: var(--marinho);
-  border-radius: 10px 0 0 10px;
+  border-radius: 8px 0 0 8px;
 }
 
 .grafico-linha.destaque .grafico-preenchimento {
@@ -178,17 +182,9 @@ button:focus-visible {
 }
 
 .grafico-fonte {
-  font-size: 0.95rem;
-  color: var(--cinza-texto);
-  margin-top: 14px;
-  line-height: 1.6;
-}
-
-  .badge-fonte {
-  font-size: 0.95rem;
-  color: var(--cinza-texto);
-  margin-top: 14px;
-  line-height: 1.6;
+  font-size: 0.85rem;
+  color: #4B5A68;
+  margin-top: 12px;
 }
 
 .duas-colunas {
@@ -210,21 +206,6 @@ button:focus-visible {
   padding: 32px;
   box-shadow: 0 4px 16px rgba(20,29,41,0.1);
   margin-top: 24px;
-}
-
-/* Imagem de exemplo do golpe na persona */
-.persona-exemplo-golpe {
-  margin: 24px 0;
-  text-align: center;
-}
-
-.persona-exemplo-golpe img {
-  max-width: 50%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(20,29,41,0.15);
-  display: block;
-  margin: 0 auto;
 }
 
 .persona-cabecalho {
@@ -257,17 +238,55 @@ button:focus-visible {
   display: inline-block;
   background: var(--azul-claro-suave);
   color: var(--marinho);
+  font-size: 0.9rem;
   padding: 4px 12px;
   border-radius: 999px;
   font-weight: 700;
 }
 
-.persona-nota {
-  font-size: 1rem;
-  color: var(--cinza-texto);
-  margin-top: 24px;
+.persona-citacao {
+  font-family: var(--fonte-titulo);
   font-style: italic;
-  line-height: 1.6;
+  font-size: 1.2rem;
+  border-left: 5px solid var(--vermelho);
+  padding: 6px 20px;
+  margin: 0 0 26px;
+  color: var(--marinho);
+}
+
+.persona-grade {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.persona-bloco {
+  flex: 1 1 260px;
+  background: var(--azul-claro-suave);
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+
+.persona-bloco h4 {
+  font-family: var(--fonte-titulo);
+  margin: 0 0 8px;
+  font-size: 1.08rem;
+}
+
+.persona-bloco p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.persona-bloco.risco {
+  background: #FBE4E1;
+}
+
+.persona-nota {
+  font-size: 0.9rem;
+  color: #4B5A68;
+  margin-top: 20px;
+  font-style: italic;
 }
 
 /* ---------- Linha do tempo — fases do golpe ---------- */
@@ -300,9 +319,9 @@ button:focus-visible {
   font-family: var(--fonte-titulo);
   font-weight: 700;
   color: var(--vermelho-escuro);
-  font-size: 1rem;
+  font-size: 0.95rem;
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .fase-item .fase-numero::before {
@@ -316,7 +335,7 @@ button:focus-visible {
 }
 
 .fase-item p {
-  font-size: 1.05rem;
+  font-size: 0.98rem;
   margin: 0;
 }
 
@@ -361,7 +380,7 @@ button:focus-visible {
 
 .jornada-passo p {
   margin: 0;
-  font-size: 1.05rem;
+  font-size: 0.98rem;
 }
 
 /* ---------- Onde denunciar ---------- */
@@ -392,30 +411,27 @@ button:focus-visible {
 /* ---------- Nota de transparência / metodologia ---------- */
 .nota-metodologica {
   background: var(--azul-claro-suave);
-  border-radius: 16px;
-  padding: 28px 30px;
-  margin-top: 24px;
-  font-size: 1.05rem;
-  color: var(--cinza-texto);
-  line-height: 1.7;
+  border-radius: 14px;
+  padding: 22px 26px;
+  margin-top: 16px;
+  font-size: 0.98rem;
 }
 
 .nota-metodologica h3 {
   font-family: var(--fonte-titulo);
-  margin: 0 0 14px;
-  font-size: 1.2rem;
+  margin: 0 0 10px;
+  font-size: 1.1rem;
 }
 
- .lista-referencias {
-  margin: 14px 0 0;
-  padding-left: 26px;
-  font-size: 1rem;
-  color: var(--cinza-texto);
-  line-height: 1.7;
+.lista-referencias {
+  margin: 10px 0 0;
+  padding-left: 22px;
+  font-size: 0.92rem;
+  color: #3A4753;
 }
 
- .lista-referencias li {
-  margin-bottom: 8px;
+.lista-referencias li {
+  margin-bottom: 6px;
 }
 
 /* ---------- Seção principal (hero) ---------- */
@@ -459,6 +475,27 @@ button:focus-visible {
   display: block;
   margin-bottom: 6px;
   color: var(--vermelho-escuro);
+}
+
+/* ---------- Botão de leitura em voz alta (acessibilidade) ---------- */
+.botao-ouvir {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--branco);
+  color: var(--marinho);
+  border: 2px solid var(--marinho);
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-family: var(--fonte-corpo);
+  font-size: 0.98rem;
+  font-weight: 700;
+  cursor: pointer;
+  min-height: 44px;
+  margin-bottom: 18px;
+}
+.botao-ouvir:hover, .botao-ouvir:focus-visible {
+  background: var(--azul-claro-suave);
 }
 
 /* ---------- Botões ---------- */
@@ -505,7 +542,7 @@ button:focus-visible {
 .secao {
   max-width: 900px;
   margin: 0 auto;
-  padding: 64px 24px;
+  padding: 48px 24px;
 }
 
 .secao h2 {
@@ -515,47 +552,12 @@ button:focus-visible {
   color: var(--marinho);
 }
 
-/* Seções com fundo branco e cantos arredondados */
-.secao--fundo-branco {
-  background: var(--branco);
-  border-radius: 20px;
-}
-
-/* Seções com fundo azul suave e cantos arredondados */
-.secao--fundo-azul-suave {
-  background: var(--azul-claro-suave);
-  border-radius: 20px;
-}
-
 .cartao {
   background: var(--branco);
   border-radius: 14px;
   padding: 28px;
   box-shadow: 0 2px 10px rgba(20,29,41,0.07);
   margin-bottom: 20px;
-}
-
-/* Cartão com fundo azul suave */
-.cartao--fundo-azul-suave {
-  background: var(--azul-claro-suave);
-  color: var(--cinza-texto);
-}
-
-/* Cartão com margem superior para separação visual */
-.cartao--margin-top {
-  margin-top: 32px;
-}
-
-/* Título com margem extra para a jornada */
-.espacamento-jornada {
-  font-family: var(--fonte-titulo);
-  margin-top: 40px;
-}
-
-/* Títulos de cartão padronizados */
-.cartao h3 {
-  font-family: var(--fonte-titulo);
-  margin-top: 0;
 }
 
 /* ---------- Sequência "Pare → Verifique → Converse → Decida" ---------- */
@@ -638,7 +640,79 @@ button:focus-visible {
   font-size: 1rem;
 }
 
-/* ---------- Faixa de chamada para o quiz ---------- */
+/* ---------- Exemplo de conversa (mockup de celular) ---------- */
+.celular-moldura {
+  background: #E8F0F3;
+  border-radius: 18px;
+  padding: 16px;
+  max-width: 420px;
+  margin: 20px auto 0;
+  border: 1px solid var(--cinza-borda);
+}
+
+.celular-topo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--cinza-borda);
+}
+
+.celular-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--azul-claro-suave);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.celular-nome {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.conversa {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.balao {
+  max-width: 82%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  font-size: 0.98rem;
+  line-height: 1.45;
+}
+
+.balao-recebido {
+  align-self: flex-start;
+  background: var(--branco);
+  border: 1px solid var(--cinza-borda);
+  border-bottom-left-radius: 4px;
+}
+
+.balao-enviado {
+  align-self: flex-end;
+  background: var(--marinho);
+  color: var(--branco);
+  border-bottom-right-radius: 4px;
+}
+
+.marca-sinal {
+  align-self: center;
+  background: #FBE4E1;
+  color: var(--vermelho-escuro);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin: 2px 0 6px;
+}
 .faixa-cta {
   background: var(--marinho);
   color: var(--branco);
@@ -699,7 +773,7 @@ button:focus-visible {
 }
 
 .rodape-nota {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: #9FADB8;
   margin: 0;
 }
@@ -779,6 +853,237 @@ button:focus-visible {
     padding: 40px 18px 48px;
   }
 }
+
+/* =========================================================
+   Telas do Quiz — "Identifique o Golpe"
+   ========================================================= */
+
+.tela-quiz {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px 60px;
+}
+
+.link-voltar {
+  align-self: flex-start;
+  color: var(--marinho);
+  text-decoration: none;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.link-voltar:hover, .link-voltar:focus-visible {
+  text-decoration: underline;
+}
+
+.cartao-quiz {
+  background: var(--branco);
+  border-radius: 20px;
+  max-width: 520px;
+  width: 100%;
+  padding: 32px 28px;
+  box-shadow: 0 6px 20px rgba(20,29,41,0.1);
+}
+
+.cartao-quiz h1 {
+  font-family: var(--fonte-titulo);
+  font-size: 1.6rem;
+  margin: 0 0 14px;
+  text-align: center;
+}
+
+.cartao-quiz .intro-texto {
+  font-size: 1.05rem;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.intro-regras {
+  background: var(--azul-claro-suave);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 28px;
+}
+.intro-regras li {
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+.intro-regras li:last-child { margin-bottom: 0; }
+
+.progresso-quiz {
+  width: 100%;
+  max-width: 520px;
+  margin-bottom: 16px;
+}
+.progresso-texto {
+  font-size: 0.95rem;
+  color: var(--marinho);
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+.progresso-trilha {
+  height: 10px;
+  background: var(--azul-claro-suave);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.progresso-preenchimento {
+  height: 100%;
+  background: var(--vermelho);
+  border-radius: 6px;
+  transition: width 0.3s ease;
+}
+
+.imagem-hq-quiz {
+  width: 95%;
+  max-width: 420px;
+  height: 400px;
+  object-fit: contain;
+  border-radius: 14px;
+  display: block;
+  margin: 0 auto 22px;
+  border: 1px solid var(--cinza-borda);
+}
+
+.cena-personagem {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.avatar-personagem {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--azul-claro-suave);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.balao-fala-quiz {
+  position: relative;
+  background: var(--azul-claro-suave);
+  border: 2px solid var(--marinho);
+  border-radius: 16px;
+  padding: 14px 18px;
+  font-size: 1.08rem;
+  line-height: 1.5;
+}
+.balao-fala-quiz::before {
+  content: "";
+  position: absolute;
+  left: -11px;
+  top: 20px;
+  border-width: 9px 11px 9px 0;
+  border-style: solid;
+  border-color: transparent var(--marinho) transparent transparent;
+}
+.balao-fala-quiz::after {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 21px;
+  border-width: 8px 10px 8px 0;
+  border-style: solid;
+  border-color: transparent var(--azul-claro-suave) transparent transparent;
+}
+
+.pergunta-quiz {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin: 0 0 18px;
+}
+
+.opcoes-quiz {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.opcao-quiz {
+  padding: 16px 18px;
+  font-family: var(--fonte-corpo);
+  font-size: 1.05rem;
+  text-align: left;
+  border-radius: 12px;
+  border: 2px solid var(--cinza-borda);
+  background: var(--branco);
+  cursor: pointer;
+  min-height: 56px;
+  color: var(--marinho);
+}
+.opcao-quiz:hover, .opcao-quiz:focus-visible {
+  border-color: var(--marinho);
+}
+.opcao-quiz.certa {
+  border-color: #2E9E5B;
+  background: #EAFAF0;
+}
+.opcao-quiz.errada {
+  border-color: var(--vermelho);
+  background: #FDEDED;
+}
+.opcao-quiz:disabled {
+  cursor: default;
+}
+
+.feedback-quiz {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border-radius: 12px;
+  font-size: 1rem;
+  line-height: 1.5;
+  display: none;
+}
+.feedback-quiz.mostrar { display: block; }
+.feedback-quiz.acerto { background: #EAFAF0; color: #1F6F3D; }
+.feedback-quiz.erro { background: #FDEDED; color: #A13030; }
+
+.botao-avancar {
+  margin-top: 20px;
+  width: 100%;
+  display: none;
+}
+.botao-avancar.mostrar { display: inline-flex; }
+
+.tela-resultado {
+  text-align: center;
+}
+.circulo-pontuacao {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 8px solid var(--vermelho);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--fonte-titulo);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--marinho);
+  margin: 0 auto 20px;
+}
+.resumo-resultado {
+  text-align: left;
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+}
+.resumo-resultado li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--cinza-borda);
+  font-size: 1rem;
+}
+.resumo-resultado li:last-child { border-bottom: none; }
 
 /* Respeita preferência do usuário por menos movimento */
 @media (prefers-reduced-motion: reduce) {
