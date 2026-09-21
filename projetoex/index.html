@@ -62,12 +62,12 @@
     </div>
 
     <div class="cartao">
-      <h3 style="font-family: var(--fonte-titulo); margin-top:0;">A tática do "Love Bombing"</h3>
+      <h3>A tática do "Love Bombing"</h3>
       <p>O termo técnico usado para descrever a fase inicial do golpe é <strong>Love Bombing</strong> (bombardeio de amor): o golpista satura a vítima com elogios, atenção constante e declarações afetuosas intensas logo nos primeiros contatos. Isso cria um vínculo de confiança acelerado que reduz o julgamento crítico antes do pedido de dinheiro.</p>
     </div>
 
     <div class="cartao">
-      <h3 style="font-family: var(--fonte-titulo); margin-top:0;">Veja como isso acontece na prática</h3>
+      <h3>Veja como isso acontece na prática</h3>
       <p>Este é um exemplo (fictício) de como uma conversa de golpe do amor costuma evoluir:</p>
 
       <div class="celular-moldura">
@@ -75,12 +75,12 @@
     </div>
   </section>
 
-  <section class="secao" id="dados-da-pesquisa" style="background: var(--branco); border-radius: 20px;">
+  <section class="secao secao--fundo-branco" id="dados-da-pesquisa">
     <h2>Por que esse tema importa? Veja os dados da pesquisa</h2>
 
     <div class="duas-colunas">
-      <div class="cartao" style="background: var(--azul-claro-suave);">
-        <h3 style="font-family: var(--fonte-titulo); margin-top:0;">Uso de internet por faixa etária</h3>
+      <div class="cartao cartao--fundo-azul-suave">
+        <h3>Uso de internet por faixa etária</h3>
         <div class="grafico-barras">
           <div class="grafico-linha">
             <div class="grafico-rotulo"><span>16 a 24 anos</span><span class="valor">95%</span></div>
@@ -106,8 +106,8 @@
         <p class="grafico-fonte">Fonte: NIC.br/Cetic.br, TIC Domicílios 2024 — Indicador C2 (uso de internet nos últimos 3 meses).</p>
       </div>
 
-      <div class="cartao" style="background: var(--azul-claro-suave);">
-        <h3 style="font-family: var(--fonte-titulo); margin-top:0;">Estelionato por meio eletrônico no Brasil</h3>
+      <div class="cartao cartao--fundo-azul-suave">
+        <h3>Estelionato por meio eletrônico no Brasil</h3>
         <div class="grafico-barras">
           <div class="grafico-linha">
             <div class="grafico-rotulo"><span>2023</span><span class="valor">222.765 casos</span></div>
@@ -122,8 +122,8 @@
       </div>
     </div>
 
-    <div class="cartao" style="margin-top:24px;">
-      <h3 style="font-family: var(--fonte-titulo); margin-top:0;">Ter acesso à internet não é o mesmo que saber verificar</h3>
+    <div class="cartao cartao--margin-top">
+      <h3>Ter acesso à internet não é o mesmo que saber verificar</h3>
       <div class="grafico-barras">
         <div class="grafico-linha">
           <div class="grafico-rotulo"><span>Verificaram se uma informação era verdadeira</span><span class="valor">29%</span></div>
@@ -146,7 +146,7 @@
     </div>
   </section>
 
-  <section class="secao" id="fases-do-golpe" style="background: var(--branco); border-radius: 20px;">
+  <section class="secao secao--fundo-branco" id="fases-do-golpe">
     <h2>Como o golpe acontece: as fases</h2>
     <p>O golpe segue um padrão de manipulação psicológica gradual. Conhecer essas fases ajuda a identificar o problema antes do prejuízo financeiro.</p>
 
@@ -206,7 +206,7 @@
       </div>
     </div>
 
-    <h3 style="font-family: var(--fonte-titulo); margin-top:40px;">A jornada completa de prevenção</h3>
+    <h3 class="espacamento-jornada">A jornada completa de prevenção</h3>
     <div class="jornada-grade">
       <div class="jornada-passo">
         <span class="jornada-numero">1</span>
@@ -235,7 +235,7 @@
     </div>
   </section>
 
-  <section class="secao" id="sinais-de-alerta" style="background: var(--azul-claro-suave); border-radius: 20px;">
+  <section class="secao secao--fundo-azul-suave" id="sinais-de-alerta">
     <h2>Principais sinais de alerta</h2>
     <div class="grade-sinais">
       <div class="sinal-cartao">
@@ -294,7 +294,7 @@
 <!--QUIZ -->
 <div id="quiz-app" class="tela-quiz" style="display:none;">
 
-  <button type="button" class="link-voltar" onclick="mostrarSite()" style="background:none; border:none; cursor:pointer;">← Voltar ao início</button>
+  <button type="button" class="link-voltar" onclick="mostrarSite()">← Voltar ao início</button>
 
   <!-- TELA 1: INTRODUÇÃO -->
   <section id="tela-intro" class="cartao-quiz">
@@ -307,7 +307,7 @@
       <li>🔄 Pode refazer quantas vezes quiser</li>
     </ul>
     <button type="button" class="botao-ouvir" id="botao-ouvir-intro">🔊 Ouvir instruções</button>
-    <button class="botao botao-primario" style="width:100%;" onclick="iniciarQuiz()">Começar o quiz</button>
+    <button class="botao botao-primario botao-full" onclick="iniciarQuiz()">Começar o quiz</button>
   </section>
 
   <!-- TELA 2: PERGUNTAS -->
@@ -340,10 +340,10 @@
   <section id="tela-resultado" class="cartao-quiz tela-resultado" style="display:none;">
     <h1>Parabéns! Você concluiu o quiz!</h1>
     <p id="texto-resultado">Não fique triste se errou algumas perguntas 💙. Cada erro também é uma oportunidade de aprender e entender melhor como identificar situações suspeitas na internet. O mais importante é levar esse conhecimento com você: desconfie, verifique e, quando tiver dúvida, peça ajuda a alguém de confiança.</p>
-    <p style="margin-top:16px; font-weight:700;">Informação e atenção são importantes para evitar golpes!</p>
+    <p class="texto-destaque">Informação e atenção são importantes para evitar golpes!</p>
     <button type="button" class="botao-ouvir" id="botao-ouvir-resultado">🔊 Ouvir resultado</button>
-    <button class="botao botao-primario" style="width:100%; margin-top:24px;" onclick="reiniciarQuiz()">Refazer o quiz</button>
-    <button type="button" class="botao botao-secundario" style="width:100%; margin-top:12px; box-sizing:border-box;" onclick="mostrarSite()">Voltar ao site</button>
+    <button class="botao botao-primario botao-full" style="margin-top:24px;" onclick="reiniciarQuiz()">Refazer o quiz</button>
+    <button type="button" class="botao botao-secundario botao-full" style="margin-top:12px;" onclick="mostrarSite()">Voltar ao site</button>
   </section>
 
 </div>
