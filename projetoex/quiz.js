@@ -1,8 +1,3 @@
-/* ===========================================================
-   Acessibilidade — Leitura em voz alta (Web Speech API)
-   Compartilhado entre index.html e quiz.html
-   =========================================================== */
-
 let botaoLeituraAtivo = null;
 
 function falar(texto, botao) {
@@ -13,7 +8,6 @@ function falar(texto, botao) {
 
   const estavaFalandoEsteBotao = botaoLeituraAtivo === botao && window.speechSynthesis.speaking;
 
-  // Sempre para qualquer leitura em andamento antes de decidir o que fazer
   window.speechSynthesis.cancel();
   if (botaoLeituraAtivo && botaoLeituraAtivo.dataset.textoOriginal) {
     botaoLeituraAtivo.textContent = botaoLeituraAtivo.dataset.textoOriginal;
@@ -55,7 +49,7 @@ function pararTodasLeituras() {
   botaoLeituraAtivo = null;
 }
 
-// No site (index.html): adiciona automaticamente um botão "Ouvir" no topo de cada seção
+// adiciona automaticamente um botão "Ouvir" no topo de cada seção
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('main#conteudo-principal > section').forEach(function (secao) {
     const texto = secao.textContent.trim().replace(/\s+/g, ' ');
@@ -71,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
     secao.insertBefore(btn, secao.firstChild);
   });
 });
-/* ===================== Alternar entre Site e Quiz ===================== */
+/*  Alternar entre Site e Quiz  */
 function mostrarQuizApp() {
   pararTodasLeituras();
   document.getElementById('conteudo-principal').style.display = 'none';
@@ -93,16 +87,16 @@ document.querySelectorAll('.navegacao a').forEach(function (link) {
   });
 });
 
-/* ===================== Lógica do Quiz "Identifique o Golpe" ===================== */
+/* Lógica do Quiz  */
 const perguntas = [
   {
     imagem: "pergunta01.jpeg",
     imagemAlt: "Pergunta 1",
     pergunta: "O que você (vítima) deve fazer ao receber uma mensagem de um(a) desconhecido(a) puxando conversa?",
     opcoes: [
-      { texto: "Aceitar conversar porque você se sente sozinho(a) ultimamente e quer fazer novos(as) amigos(as).", certa: false, explicacao: "Errada: sentir-se sozinho(a) não significa que seja seguro conversar com um desconhecido. É importante verificar quem é a pessoa antes de criar confiança." },
-      { texto: "Responder com simpatia contando todos os detalhes da sua rotina e da sua família.", certa: false, explicacao: "Errada: contar detalhes da sua rotina e da sua família para alguém desconhecido pode revelar informações pessoais que podem ser usadas contra você." },
-      { texto: "Desconfiar e verificar quem é a pessoa antes de dar atenção e passar contatos.", certa: true, explicacao: "Correta: muito bem! É bom ter cautela e checar quem está do outro lado da tela antes de abrir conversa com estranhos(as)." }
+      { texto: "Aceitar conversar porque você se sente sozinho(a) ultimamente e quer fazer novos(as) amigos(as).", certa: false, explicacao: "Errado. Sentir-se sozinho(a) não significa que seja seguro conversar com um desconhecido. É importante verificar quem é a pessoa antes de criar confiança." },
+      { texto: "Responder com simpatia contando todos os detalhes da sua rotina e da sua família.", certa: false, explicacao: "Errado. Contar detalhes da sua rotina e da sua família para alguém desconhecido pode revelar informações pessoais que podem ser usadas contra você." },
+      { texto: "Desconfiar e verificar quem é a pessoa antes de dar atenção e passar contatos.", certa: true, explicacao: "Correto! A história mostra 3 sinais clássicos: declaração de amor muitorápida, pedido de dinheiro urgente euma emergência inventada (o projeto na Nigéria). Esse padrão é conhecido como Love Bombing seguido de pedido financeiro. ." }
     ]
   },
   {
@@ -110,9 +104,9 @@ const perguntas = [
     imagemAlt:"Pergunta 2" ,
     pergunta: "Por que o golpista prefere mudar a conversa para o WhatsApp?",
     opcoes: [
-      { texto: "Porque o WhatsApp é o único aplicativo que existe no celular dele(a).", certa: false, explicacao: "Errada: o fato de a pessoa usar apenas o WhatsApp não explica por que ela quer falar com você por lá. A mudança pode ser uma tentativa de deixar a conversa mais privada." },
-      { texto: "Porque lá é mais privado e fica mais fácil de isolar e enganar a vítima.", certa: true, explicacao: "Correta: isso mesmo. Levar a conversa para um aplicativo mais particular pode facilitar o isolamento e a manipulação da vítima." },
-      { texto: "Porque ele(a) quer apenas ver suas fotos antigas.", certa: false, explicacao: "Errada: ver fotos antigas não é uma justificativa suficiente para insistir em levar a conversa para outro aplicativo." }
+      { texto: "Porque o WhatsApp é o único aplicativo que existe no celular dele(a).", certa: false, explicacao: "Errado. O fato de a pessoa usar apenas o WhatsApp não explica por que ela quer falar com você por lá. A mudança pode ser uma tentativa de deixar a conversa mais privada." },
+      { texto: "Porque lá é mais privado e fica mais fácil de isolar e enganar a vítima.", certa: true, explicacao: "Correto! Levar a conversa para um aplicativo mais particular pode facilitar o isolamento e a manipulação da vítima." },
+      { texto: "Porque ele(a) quer apenas ver suas fotos antigas.", certa: false, explicacao: "Errado. Ver fotos antigas não é uma justificativa suficiente para insistir em levar a conversa para outro aplicativo." }
     ]
   },
   {
@@ -120,9 +114,9 @@ const perguntas = [
     imagemAlt:"pergunta 3",
     pergunta: "Toda foto bonita na internet significa que a pessoa realmente é quem diz ser?",
     opcoes: [
-      { texto: "Sim, as pessoas só colocam fotos verdadeiras na internet.", certa: false, explicacao: "Errada: fotos podem ser copiadas ou usadas por outras pessoas. Por isso, uma foto bonita não prova a identidade de alguém." },
-      { texto: "Sim, porque a rede social verifica a identidade de todo mundo.", certa: false, explicacao: "Errada: redes sociais não garantem que todos os perfis sejam de pessoas realmente quem dizem ser." },
-      { texto: "Não, golpistas costumam roubar fotos de pessoas famosas ou perfis alheios para fingir ser quem não são.", certa: true, explicacao: "Correta: exato! Qualquer pessoa pode copiar fotos da internet e criar um perfil falso. Nunca confie apenas na aparência do perfil." }
+      { texto: "Sim, as pessoas só colocam fotos verdadeiras na internet.", certa: false, explicacao: "Errado. Fotos podem ser copiadas ou usadas por outras pessoas. Por isso, uma foto bonita não prova a identidade de alguém." },
+      { texto: "Sim, porque a rede social verifica a identidade de todo mundo.", certa: false, explicacao: "Errado. Redes sociais não garantem que todos os perfis sejam de pessoas realmente quem dizem ser." },
+      { texto: "Não, golpistas costumam roubar fotos de pessoas famosas ou perfis alheios para fingir ser quem não são.", certa: true, explicacao: "Exato! Qualquer pessoa pode copiar fotos da internet e criar um perfil falso. Nunca confie apenas na aparência do perfil." }
     ]
   },
   {
@@ -130,9 +124,9 @@ const perguntas = [
     imagemAlt: "pergunta 4",
     pergunta: "O que significa quando alguém que acabou de se conhecer na internet declara amor eterno muito rápido?",
     opcoes: [
-      { texto: "É sinal de que ele(a) é muito romântico(a) e sincero(a).", certa: false, explicacao: "Errada: ser romântico não significa declarar amor eterno poucos dias depois de conhecer alguém. A rapidez e o exagero podem ser sinais de manipulação." },
-      { texto: "É perfeitamente normal em qualquer amizade virtual.", certa: false, explicacao: "Errada: não é algo que possa ser considerado normal em qualquer amizade virtual. É importante observar quando o carinho é exagerado e acontece rápido demais." },
-      { texto: "É um sinal forte de golpe; eles usam isso para te envolver emocionalmente bem rápido.", certa: true, explicacao: "Correta: perfeito! O carinho exagerado logo no início pode ser usado para criar confiança e envolver a vítima emocionalmente." }
+      { texto: "É sinal de que ele(a) é muito romântico(a) e sincero(a).", certa: false, explicacao: "Errado. Ser romântico não significa declarar amor eterno poucos dias depois de conhecer alguém. A rapidez e o exagero podem ser sinais de manipulação." },
+      { texto: "É perfeitamente normal em qualquer amizade virtual.", certa: false, explicacao: "Errado. Não é algo que possa ser considerado normal em qualquer amizade virtual. É importante observar quando o carinho é exagerado e acontece rápido demais." },
+      { texto: "É um sinal forte de golpe; eles usam isso para te envolver emocionalmente bem rápido.", certa: true, explicacao: "Correto! O carinho exagerado logo no início pode ser usado para criar confiança e envolver a vítima emocionalmente." }
     ]
   },
   {
@@ -140,9 +134,9 @@ const perguntas = [
     imagemAlt:"Pergunta 5",
     pergunta: "Qual é a desculpa clássica que os golpistas usam para nunca marcar um encontro pessoal?",
     opcoes: [
-      { texto: "Convidar para tomar um café na padaria amanhã cedo.", certa: false, explicacao: "Errada: se a pessoa realmente pretende se encontrar, marcar um encontro próximo e seguro seria possível. Essa alternativa não explica uma desculpa para evitar encontros." },
-      { texto: "Dizer que mora longe, que trabalha viajando ou que está prestando serviço militar no exterior.", certa: true, explicacao: "Correta: muito bem! Golpistas podem inventar que moram longe, viajam muito ou estão trabalhando no exterior para evitar encontros presenciais." },
-      { texto: "Dizer que está sem tempo por causa da rotina, mas que poderá marcar um encontro em breve.", certa: false, explicacao: "Errada: dizer que está sem tempo pode ser uma desculpa, mas não é a mesma situação de fingir que mora longe ou está sempre viajando." }
+      { texto: "Convidar para tomar um café na padaria amanhã cedo.", certa: false, explicacao: "Errado. Se a pessoa realmente pretende se encontrar, marcar um encontro próximo e seguro seria possível. Essa alternativa não explica uma desculpa para evitar encontros." },
+      { texto: "Dizer que mora longe, que trabalha viajando ou que está prestando serviço militar no exterior.", certa: true, explicacao: "Muito bem! Golpistas podem inventar que moram longe, viajam muito ou estão trabalhando no exterior para evitar encontros presenciais." },
+      { texto: "Dizer que está sem tempo por causa da rotina, mas que poderá marcar um encontro em breve.", certa: false, explicacao: "Errado. Dizer que está sem tempo pode ser uma desculpa, mas não é a mesma situação de fingir que mora longe ou está sempre viajando." }
     ]
   },
   {
@@ -150,9 +144,9 @@ const perguntas = [
     imagemAlt:"Pergunta 6",
     pergunta: "Qual é o objetivo do golpista ao pedir para guardar segredo sobre a relação?",
     opcoes: [
-      { texto: "Afastar a vítima da família para que ninguém perceba o golpe e a alerte.", certa: true, explicacao: "Correta: exatamente! Pedir segredo pode afastar a vítima de pessoas que poderiam perceber os sinais do golpe e ajudá-la." },
-      { texto: "Proteger o romance de fofocas maldosas.", certa: false, explicacao: "Errada: um relacionamento saudável não precisa ser escondido por medo de fofocas. Pedir segredo pode ser uma forma de impedir que outras pessoas percebam o que está acontecendo." },
-      { texto: "Porque ele(a) é uma pessoa tímida.", certa: false, explicacao: "Errada: ser tímido(a) não é uma justificativa suficiente para impedir que a vítima converse sobre a relação com familiares ou amigos." }
+      { texto: "Afastar a vítima da família para que ninguém perceba o golpe e a alerte.", certa: true, explicacao: "Exatamente! Pedir segredo pode afastar a vítima de pessoas que poderiam perceber os sinais do golpe e ajudá-la." },
+      { texto: "Proteger o romance de fofocas maldosas.", certa: false, explicacao: "Errado. Um relacionamento saudável não precisa ser escondido por medo de fofocas. Pedir segredo pode ser uma forma de impedir que outras pessoas percebam o que está acontecendo." },
+      { texto: "Porque ele(a) é uma pessoa tímida.", certa: false, explicacao: "Errado. Ser tímido(a) não é uma justificativa suficiente para impedir que a vítima converse sobre a relação com familiares ou amigos." }
     ]
   },
   {
@@ -160,9 +154,9 @@ const perguntas = [
     imagemAlt:"Pergunta 7",
     pergunta: "O que caracteriza o golpe nessa hora?",
     opcoes: [
-      { texto: "O desespero repentino, a história trágica e a pressão por um Pix imediato.", certa: true, explicacao: "Correta: isso mesmo! Uma emergência repentina acompanhada de uma história trágica e pressão por dinheiro deve ser vista com muita desconfiança." },
-      { texto: "A calma e a paciência dele(a) para esperar a resolução com tranquilidade.", certa: false, explicacao: "Errada: a calma e a paciência para esperar não são características de uma situação em que alguém está tentando pressionar a vítima a enviar dinheiro imediatamente." },
-      { texto: "O envio de comprovantes bancários autenticados em cartório antes de qualquer pedido.", certa: false, explicacao: "Errada: um comprovante ou documento apresentado pela própria pessoa não garante que a história seja verdadeira ou que o pedido seja legítimo." }
+      { texto: "O desespero repentino, a história trágica e a pressão por um Pix imediato.", certa: true, explicacao: "Isso mesmo! Uma emergência repentina acompanhada de uma história trágica e pressão por dinheiro deve ser vista com muita desconfiança." },
+      { texto: "A calma e a paciência dele(a) para esperar a resolução com tranquilidade.", certa: false, explicacao: "Errado. A calma e a paciência para esperar não são características de uma situação em que alguém está tentando pressionar a vítima a enviar dinheiro imediatamente." },
+      { texto: "O envio de comprovantes bancários autenticados em cartório antes de qualquer pedido.", certa: false, explicacao: "Errado. Um comprovante ou documento apresentado pela própria pessoa não garante que a história seja verdadeira ou que o pedido seja legítimo." }
     ]
   },
   {
@@ -170,9 +164,9 @@ const perguntas = [
     imagemAlt:"Pergunta 8",
     pergunta: "Como agir diante de ameaças ou chantagens emocionais pedindo dinheiro?",
     opcoes: [
-      { texto: "Fazer o Pix correndo para salvar a pessoa.", certa: false, explicacao: "Errada: fazer um Pix sob pressão pode fazer você perder dinheiro antes de confirmar se a história é verdadeira." },
-      { texto: "Pedir um empréstimo no banco para ajudar mais.", certa: false, explicacao: "Errada: pedir um empréstimo aumenta o prejuízo caso o pedido seja um golpe. Primeiro é preciso verificar a situação, não conseguir mais dinheiro para enviar." },
-      { texto: "Parar imediatamente, respirar fundo e não ceder à pressão emocional.", certa: true, explicacao: "Correta: exato! A pressão serve apenas para paralisar. Nunca ceda ao medo provocado por estranhos(as)." }
+      { texto: "Fazer o Pix correndo para salvar a pessoa.", certa: false, explicacao: "Errado. Fazer um Pix sob pressão pode fazer você perder dinheiro antes de confirmar se a história é verdadeira." },
+      { texto: "Pedir um empréstimo no banco para ajudar mais.", certa: false, explicacao: "Errado. Pedir um empréstimo aumenta o prejuízo caso o pedido seja um golpe. Primeiro é preciso verificar a situação, não conseguir mais dinheiro para enviar." },
+      { texto: "Parar imediatamente, respirar fundo e não ceder à pressão emocional.", certa: true, explicacao: "Exato! A pressão serve apenas para paralisar. Nunca ceda ao medo provocado por estranhos(as)." }
     ]
   },
   {
@@ -180,9 +174,9 @@ const perguntas = [
     imagemAlt:"Pergunta 9",
     pergunta: "Qual é a atitude mais segura a se tomar quando alguém exige dinheiro com pressa na internet?",
     opcoes: [
-      { texto: "Guardar o segredo e tentar resolver sozinho(a) para não preocupar ninguém.", certa: false, explicacao: "Errada: guardar segredo e tentar resolver tudo sozinho(a) pode impedir que alguém de confiança perceba o golpe e ajude você a tomar uma decisão segura." },
-      { texto: "Mandar uma pequena quantia só para testar se a pessoa está falando a verdade.", certa: false, explicacao: "Errada: enviar uma pequena quantia ainda significa entregar dinheiro ao golpista e pode incentivar novos pedidos." },
-      { texto: "Parar, não enviar nada e conversar com um(a) familiar ou amigo(a) de confiança.", certa: true, explicacao: "Correta: perfeito! Pare, verifique, converse com alguém de confiança e só então tome uma decisão. Não envie dinheiro sob pressão." }
+      { texto: "Guardar o segredo e tentar resolver sozinho(a) para não preocupar ninguém.", certa: false, explicacao: "Errado. Guardar segredo e tentar resolver tudo sozinho(a) pode impedir que alguém de confiança perceba o golpe e ajude você a tomar uma decisão segura." },
+      { texto: "Mandar uma pequena quantia só para testar se a pessoa está falando a verdade.", certa: false, explicacao: "Errado. Enviar uma pequena quantia ainda significa entregar dinheiro ao golpista e pode incentivar novos pedidos." },
+      { texto: "Parar, não enviar nada e conversar com um(a) familiar ou amigo(a) de confiança.", certa: true, explicacao: "Perfeito! Pare, verifique, converse com alguém de confiança e só então tome uma decisão. Não envie dinheiro sob pressão." }
     ]
   },
   {
@@ -190,9 +184,9 @@ const perguntas = [
     imagemAlt:"Pergunta 10",
     pergunta: "O que deve ser feito imediatamente após perceber que se trata de um golpe?",
     opcoes: [
-      { texto: "Continuar respondendo para ver até onde o(a) golpista vai.", certa: false, explicacao: "Errada: continuar conversando pode dar ao golpista novas oportunidades para manipular você ou fazer outros pedidos." },
-      { texto: "Bloquear o contato na mesma hora, denunciar o perfil e avisar os familiares.", certa: true, explicacao: "Correta: isso mesmo! Bloquear, denunciar e avisar pessoas de confiança ajuda a interromper o golpe e evita novas tentativas." },
-      { texto: "Deixar o número salvo caso a pessoa precise de ajuda no futuro.", certa: false, explicacao: "Errada: manter o contato salvo pode facilitar uma nova abordagem. Depois de identificar o golpe, é mais seguro interromper o contato." }
+      { texto: "Continuar respondendo para ver até onde o(a) golpista vai.", certa: false, explicacao: "Errado. Continuar conversando pode dar ao golpista novas oportunidades para manipular você ou fazer outros pedidos." },
+      { texto: "Bloquear o contato na mesma hora, denunciar o perfil e avisar os familiares.", certa: true, explicacao: "Isso mesmo! Bloquear, denunciar e avisar pessoas de confiança ajuda a interromper o golpe e evita novas tentativas." },
+      { texto: "Deixar o número salvo caso a pessoa precise de ajuda no futuro.", certa: false, explicacao: "Errado Manter o contato salvo pode facilitar uma nova abordagem. Depois de identificar o golpe, é mais seguro interromper o contato." }
     ]
   }
 ];

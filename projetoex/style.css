@@ -1,8 +1,3 @@
-/* ===========================================================
-   Golpe do Amor — Módulo Educativo — Squad 5
-   Paleta: azul claro (fundo), azul-marinho (texto), vermelho (destaque)
-   =========================================================== */
-
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Lora:wght@500;700&display=swap');
 
 :root {
@@ -36,7 +31,6 @@ body {
 
 img { max-width: 100%; display: block; }
 
-/* Foco visível para navegação por teclado — essencial p/ acessibilidade */
 a:focus-visible,
 button:focus-visible {
   outline: 3px solid var(--vermelho);
@@ -58,7 +52,7 @@ button:focus-visible {
   left: 0;
 }
 
-/* ---------- Cabeçalho ---------- */
+/* Cabeçalho */
 .cabecalho {
   background: var(--marinho);
   color: var(--branco);
@@ -112,7 +106,7 @@ button:focus-visible {
   background: rgba(255,255,255,0.15);
 }
 
-/* ---------- Faixa de estatísticas rápidas (hero) ---------- */
+/* Faixa de estatísticas rápidas */
 .badges-rapidos {
   display: flex;
   flex-wrap: wrap;
@@ -143,7 +137,7 @@ button:focus-visible {
   color: var(--marinho);
 }
 
-/* ---------- Gráficos de barra (dados da pesquisa) ---------- */
+/* Gráficos de barra (dados da pesquisa) */
 .grafico-barras {
   margin-top: 10px;
 }
@@ -199,97 +193,7 @@ button:focus-visible {
   margin-bottom: 0;
 }
 
-/* ---------- Cartão da persona ---------- */
-.persona-cartao {
-  background: var(--branco);
-  border-radius: 18px;
-  padding: 32px;
-  box-shadow: 0 4px 16px rgba(20,29,41,0.1);
-  margin-top: 24px;
-}
-
-.persona-cabecalho {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-}
-
-.persona-avatar {
-  width: 84px;
-  height: 84px;
-  border-radius: 50%;
-  background: var(--azul-claro-suave);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.6rem;
-  flex-shrink: 0;
-}
-
-.persona-nome {
-  font-family: var(--fonte-titulo);
-  font-size: 1.5rem;
-  margin: 0 0 4px;
-}
-
-.persona-tag {
-  display: inline-block;
-  background: var(--azul-claro-suave);
-  color: var(--marinho);
-  font-size: 0.9rem;
-  padding: 4px 12px;
-  border-radius: 999px;
-  font-weight: 700;
-}
-
-.persona-citacao {
-  font-family: var(--fonte-titulo);
-  font-style: italic;
-  font-size: 1.2rem;
-  border-left: 5px solid var(--vermelho);
-  padding: 6px 20px;
-  margin: 0 0 26px;
-  color: var(--marinho);
-}
-
-.persona-grade {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.persona-bloco {
-  flex: 1 1 260px;
-  background: var(--azul-claro-suave);
-  border-radius: 12px;
-  padding: 18px 20px;
-}
-
-.persona-bloco h4 {
-  font-family: var(--fonte-titulo);
-  margin: 0 0 8px;
-  font-size: 1.08rem;
-}
-
-.persona-bloco p {
-  margin: 0;
-  font-size: 1rem;
-}
-
-.persona-bloco.risco {
-  background: #FBE4E1;
-}
-
-.persona-nota {
-  font-size: 0.9rem;
-  color: #4B5A68;
-  margin-top: 20px;
-  font-style: italic;
-}
-
-/* ---------- Linha do tempo — fases do golpe ---------- */
+/*  Linha do tempo — fases do golpe */
 .linha-tempo {
   display: flex;
   flex-wrap: wrap;
@@ -339,7 +243,7 @@ button:focus-visible {
   margin: 0;
 }
 
-/* ---------- Jornada de prevenção (6 passos) ---------- */
+/* Jornada de prevenção (6 passos)  */
 .jornada-grade {
   display: flex;
   flex-wrap: wrap;
@@ -383,7 +287,7 @@ button:focus-visible {
   font-size: 0.98rem;
 }
 
-/* ---------- Onde denunciar ---------- */
+/* Onde denunciar */
 .lista-denuncia {
   list-style: none;
   padding: 0;
@@ -408,7 +312,7 @@ button:focus-visible {
   font-size: 1.5rem;
 }
 
-/* ---------- Nota de transparência / metodologia ---------- */
+/* Nota de transparência / metodologia */
 .nota-metodologica {
   background: var(--azul-claro-suave);
   border-radius: 14px;
@@ -434,7 +338,7 @@ button:focus-visible {
   margin-bottom: 6px;
 }
 
-/* ---------- Seção principal (hero) ---------- */
+/* Seção principal */
 .hero {
   padding: 56px 24px 64px;
   text-align: center;
@@ -459,25 +363,7 @@ button:focus-visible {
   color: var(--marinho);
 }
 
-.estatistica-destaque {
-  background: var(--branco);
-  border-left: 6px solid var(--vermelho);
-  border-radius: 12px;
-  padding: 20px 24px;
-  margin: 0 0 36px;
-  text-align: left;
-  box-shadow: 0 2px 10px rgba(20,29,41,0.08);
-}
-
-.estatistica-destaque strong {
-  font-family: var(--fonte-titulo);
-  font-size: 1.3rem;
-  display: block;
-  margin-bottom: 6px;
-  color: var(--vermelho-escuro);
-}
-
-/* ---------- Botão de leitura em voz alta (acessibilidade) ---------- */
+/* Botão de leitura em voz alta (acessibilidade) */
 .botao-ouvir {
   display: inline-flex;
   align-items: center;
@@ -498,7 +384,7 @@ button:focus-visible {
   background: var(--azul-claro-suave);
 }
 
-/* ---------- Botões ---------- */
+/* Botões */
 .botao {
   display: inline-flex;
   align-items: center;
@@ -538,7 +424,7 @@ button:focus-visible {
   background: var(--azul-claro-suave);
 }
 
-/* ---------- Seções de conteúdo ---------- */
+/* Seções de conteúdo */
 .secao {
   max-width: 900px;
   margin: 0 auto;
@@ -560,7 +446,7 @@ button:focus-visible {
   margin-bottom: 20px;
 }
 
-/* ---------- Sequência "Pare → Verifique → Converse → Decida" ---------- */
+/* Sequência "Pare → Verifique → Converse → Decida"  */
 .sequencia {
   display: flex;
   flex-wrap: wrap;
@@ -602,11 +488,7 @@ button:focus-visible {
   margin: 0;
 }
 
-.seta-sequencia {
-  display: none;
-}
-
-/* ---------- Grade de sinais de alerta ---------- */
+/* Grade de sinais de alerta */
 .grade-sinais {
   display: flex;
   flex-wrap: wrap;
@@ -640,7 +522,7 @@ button:focus-visible {
   font-size: 1rem;
 }
 
-/* ---------- Exemplo de conversa (mockup de celular) ---------- */
+/* Exemplo de conversa */
 .celular-moldura {
   background: #E8F0F3;
   border-radius: 18px;
@@ -650,69 +532,13 @@ button:focus-visible {
   border: 1px solid var(--cinza-borda);
 }
 
-.celular-topo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding-bottom: 12px;
-  margin-bottom: 12px;
-  border-bottom: 1px solid var(--cinza-borda);
+.celular-moldura img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
 }
 
-.celular-avatar {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--azul-claro-suave);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-}
-
-.celular-nome {
-  font-weight: 700;
-  font-size: 1rem;
-}
-
-.conversa {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.balao {
-  max-width: 82%;
-  padding: 10px 14px;
-  border-radius: 16px;
-  font-size: 0.98rem;
-  line-height: 1.45;
-}
-
-.balao-recebido {
-  align-self: flex-start;
-  background: var(--branco);
-  border: 1px solid var(--cinza-borda);
-  border-bottom-left-radius: 4px;
-}
-
-.balao-enviado {
-  align-self: flex-end;
-  background: var(--marinho);
-  color: var(--branco);
-  border-bottom-right-radius: 4px;
-}
-
-.marca-sinal {
-  align-self: center;
-  background: #FBE4E1;
-  color: var(--vermelho-escuro);
-  font-size: 0.85rem;
-  font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 20px;
-  margin: 2px 0 6px;
-}
 .faixa-cta {
   background: var(--marinho);
   color: var(--branco);
@@ -733,7 +559,7 @@ button:focus-visible {
   margin: 0 auto 28px;
 }
 
-/* ---------- Rodapé / Autores ---------- */
+/*  Rodapé */
 .rodape {
   background: #0D1420;
   color: var(--branco);
@@ -778,7 +604,7 @@ button:focus-visible {
   margin: 0;
 }
 
-/* ---------- Responsivo: celular ---------- */
+/* Responsivo: celular  */
 @media (max-width: 720px) {
   .navegacao {
     width: 100%;
@@ -803,18 +629,6 @@ button:focus-visible {
     flex-direction: column;
   }
   .duas-colunas > .cartao {
-    flex: 0 1 auto;
-  }
-
-  .persona-cabecalho {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .persona-grade {
-    flex-direction: column;
-  }
-  .persona-grade .persona-bloco {
     flex: 0 1 auto;
   }
 
@@ -852,11 +666,13 @@ button:focus-visible {
   .hero {
     padding: 40px 18px 48px;
   }
+
+  .cartao-quiz {
+    padding: 24px 18px;
+  }
 }
 
-/* =========================================================
-   Telas do Quiz — "Identifique o Golpe"
-   ========================================================= */
+/* Telas do Quiz */
 
 .tela-quiz {
   min-height: 100vh;
@@ -939,10 +755,8 @@ button:focus-visible {
 }
 
 .imagem-hq-quiz {
-  width: 95%;
-  max-width: 420px;
-  height: 400px;
-  object-fit: contain;
+  width: 100%;
+  height: auto;
   border-radius: 14px;
   display: block;
   margin: 0 auto 22px;
@@ -954,46 +768,6 @@ button:focus-visible {
   align-items: flex-start;
   gap: 14px;
   margin-bottom: 22px;
-}
-
-.avatar-personagem {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: var(--azul-claro-suave);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  flex-shrink: 0;
-}
-
-.balao-fala-quiz {
-  position: relative;
-  background: var(--azul-claro-suave);
-  border: 2px solid var(--marinho);
-  border-radius: 16px;
-  padding: 14px 18px;
-  font-size: 1.08rem;
-  line-height: 1.5;
-}
-.balao-fala-quiz::before {
-  content: "";
-  position: absolute;
-  left: -11px;
-  top: 20px;
-  border-width: 9px 11px 9px 0;
-  border-style: solid;
-  border-color: transparent var(--marinho) transparent transparent;
-}
-.balao-fala-quiz::after {
-  content: "";
-  position: absolute;
-  left: -8px;
-  top: 21px;
-  border-width: 8px 10px 8px 0;
-  border-style: solid;
-  border-color: transparent var(--azul-claro-suave) transparent transparent;
 }
 
 .pergunta-quiz {
@@ -1058,32 +832,7 @@ button:focus-visible {
 .tela-resultado {
   text-align: center;
 }
-.circulo-pontuacao {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 8px solid var(--vermelho);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--fonte-titulo);
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--marinho);
-  margin: 0 auto 20px;
-}
-.resumo-resultado {
-  text-align: left;
-  list-style: none;
-  padding: 0;
-  margin: 20px 0 0;
-}
-.resumo-resultado li {
-  padding: 10px 0;
-  border-bottom: 1px solid var(--cinza-borda);
-  font-size: 1rem;
-}
-.resumo-resultado li:last-child { border-bottom: none; }
+
 
 /* Respeita preferência do usuário por menos movimento */
 @media (prefers-reduced-motion: reduce) {
