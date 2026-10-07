@@ -3,7 +3,7 @@ Rode depois de editar o perguntas.json:  python sincronizar_quiz.py"""
 import json
 
 perguntas = json.load(open("perguntas.json", encoding="utf-8"))
-caminho = "static/quiz.js"
+caminho = "quiz.js"
 s = open(caminho, encoding="utf-8").read().replace("\r\n", "\n")
 a = s.index("const perguntas = [")
 b = s.index("\n];", a) + 3

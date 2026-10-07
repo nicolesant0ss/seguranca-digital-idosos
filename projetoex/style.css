@@ -886,6 +886,30 @@ button:focus-visible {
   text-align: center;
 }
 
+.pergunta-feedback {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 24px 0 12px;
+}
+
+.opcoes-feedback {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.botao-feedback {
+  width: 100%;
+}
+
+.texto-feedback-ok {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1F6F3D;
+  margin: 8px 0;
+}
+
 
 /* Respeita preferência do usuário por menos movimento */
 @media (prefers-reduced-motion: reduce) {

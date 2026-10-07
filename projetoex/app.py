@@ -26,7 +26,19 @@ from flask import Flask, jsonify, request, send_from_directory
 BASE_DIR = Path(__file__).parent
 DB_PATH = os.environ.get("QUIZ_DB", str(BASE_DIR / "quiz.db"))
 
-app = Flask(__name__, static_folder="static", static_url_path="")
+ARQUIVOS_PUBLICOS = {
+    "index.html",
+    "resultados.html",
+    "quiz.js",
+    "style.css",
+    "imagemex.png",
+    "pergunta01.jpeg", "pergunta02.jpeg", "pergunta03.jpeg",
+    "pergunta04.jpeg", "pergunta05.jpeg", "pergunta06.jpeg",
+    "pergunta07.jpeg", "pergunta08.jpeg", "pergunta09.jpeg",
+    "pergunta10.jpeg",
+}
+
+app = Flask(__name__, static_folder=None, static_url_path="")
 
 # ------------------------------------------------- Google Forms
 # Cole aqui (ou defina como variável de ambiente) os dados do SEU formulário.
@@ -130,7 +142,14 @@ def validar_resposta(pergunta_id, opcao):
 # -------------------------------------------------------------- rotas
 @app.get("/")
 def home():
-    return send_from_directory(app.static_folder, "index.html")
+    return send_from_directory(str(BASE_DIR), "index.html")
+
+
+@app.get("/<path:filename>")
+def servir_estatico(filename):
+    if filename in ARQUIVOS_PUBLICOS:
+        return send_from_directory(str(BASE_DIR), filename)
+    return erro("Não encontrado", 404)
 
 
 @app.get("/api/perguntas")

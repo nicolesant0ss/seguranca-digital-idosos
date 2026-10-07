@@ -351,6 +351,15 @@
     <p id="texto-resultado">Não fique triste se errou algumas perguntas 💙. Cada erro também é uma oportunidade de aprender e entender melhor como identificar situações suspeitas na internet. O mais importante é levar esse conhecimento com você: desconfie, verifique e, quando tiver dúvida, peça ajuda a alguém de confiança.</p>
     <p class="texto-destaque">Informação e atenção são importantes para evitar golpes!</p>
     <button type="button" class="botao-ouvir" id="botao-ouvir-resultado">🔊 Ouvir resultado</button>
+
+    <h3 class="pergunta-feedback">Você se sente mais seguro após usar nosso site?</h3>
+    <div class="opcoes-feedback" id="opcoes-feedback">
+      <button type="button" class="botao botao-primario botao-full botao-feedback" onclick="enviarFeedback('sim')">Sim</button>
+      <button type="button" class="botao botao-primario botao-full botao-feedback" onclick="enviarFeedback('mais_ou_menos')">Mais ou menos</button>
+      <button type="button" class="botao botao-primario botao-full botao-feedback" onclick="enviarFeedback('nao')">Não</button>
+    </div>
+    <p id="feedback-agradecimento" class="texto-feedback-ok" style="display:none;">Obrigado pelo seu feedback!</p>
+
     <button class="botao botao-primario botao-full" style="margin-top:24px;" onclick="reiniciarQuiz()">Refazer o quiz</button>
     <button type="button" class="botao botao-secundario botao-full" style="margin-top:12px;" onclick="mostrarSite()">Voltar ao site</button>
   </section>
