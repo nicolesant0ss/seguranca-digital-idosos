@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resultados do Quiz | Golpe do Amor</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="secao" style="max-width:900px;margin:0 auto;">
+  <p><a href="/">← Voltar ao site</a></p>
+  <h1>📊 Resultados do quiz</h1>
+  <p>Dados anônimos de quem já respondeu ao quiz "Identifique o Golpe".</p>
+
+  <div class="badges-rapidos" id="resumo"></div>
+
+   <div class="cartao" style="margin-top:24px;">
+     <h3>Taxa de acerto por pergunta</h3>
+     <div class="grafico-barras" id="grafico"></div>
+     <p class="grafico-fonte">Quanto menor a barra, mais difícil foi a pergunta para os usuários.</p>
+   </div>
+
+   <div class="cartao" style="margin-top:24px;">
+     <h3>Autoavaliação: você se sente mais seguro?</h3>
+     <div class="grafico-barras" id="feedback-grafico"></div>
+     <p class="grafico-fonte">Proporção de respostas para a pergunta que aparece ao final do quiz.</p>
+   </div>
+   <p id="erro" style="display:none;color:#b00020;">Não foi possível carregar os resultados. O servidor está rodando?</p>
+</main>
+
+<script>
+function esc(t) {
+  const d = document.createElement('div');
+  d.textContent = t;
+  return d.innerHTML;
+}
+
+async function carregar() {
+  try {
+    const r = await fetch('/api/estatisticas');
+    if (!r.ok) throw new Error(r.status);
+    const d = await r.json();
+
+    document.getElementById('resumo').innerHTML =
+      `<div class="badge-rapido"><span class="numero-grande">${d.partidas_concluidas}</span>
+         <span class="legenda-badge">quizzes concluídos</span></div>
+       <div class="badge-rapido"><span class="numero-grande">${d.media_de_acertos_percentual}%</span>
+         <span class="legenda-badge">média de acertos</span></div>`;
+
+    const g = document.getElementById('grafico');
+    if (!d.por_pergunta.length) {
+      g.innerHTML = '<p>Ainda não há respostas. Jogue o quiz para gerar dados!</p>';
+    } else {
+      // Destaca a pergunta mais difícil (menor taxa de acerto)
+      const menor = Math.min(...d.por_pergunta.map(p => p.taxa_de_acerto_percentual));
+      g.innerHTML = d.por_pergunta.map(p => `
+        <div class="grafico-linha ${p.taxa_de_acerto_percentual === menor ? 'destaque' : ''}">
+          <div class="grafico-rotulo">
+            <span>${p.pergunta_id}. ${esc(p.pergunta)}</span>
+            <span class="valor">${p.taxa_de_acerto_percentual}% (${p.respostas} resp.)</span>
+          </div>
+          <div class="grafico-trilha"><div class="grafico-preenchimento" style="width:${p.taxa_de_acerto_percentual}%"></div></div>
+        </div>`).join('');
+    }
+
+    const fb = d.feedback || {};
+    const fbTotal = (fb.sim || 0) + (fb.mais_ou_menos || 0) + (fb.nao || 0);
+    const labels = { sim: 'Sim', mais_ou_menos: 'Mais ou menos', nao: 'Não' };
+    const fbEl = document.getElementById('feedback-grafico');
+    if (fbTotal === 0) {
+      fbEl.innerHTML = '<p>Ainda não há feedback. Complete o quiz para contribuir!</p>';
+    } else {
+      fbEl.innerHTML = Object.entries(labels).map(([key, label]) => {
+        const count = fb[key] || 0;
+        const pct = Math.round(count / fbTotal * 100);
+        return `
+          <div class="grafico-linha">
+            <div class="grafico-rotulo">
+              <span>${esc(label)}</span>
+              <span class="valor">${count} (${pct}%)</span>
+            </div>
+            <div class="grafico-trilha"><div class="grafico-preenchimento" style="width:${pct}%"></div></div>
+          </div>`;
+      }).join('');
+    }
+  } catch (e) {
+    document.getElementById('erro').style.display = 'block';
+  }
+}
+carregar();
+</script>
+</body>
+</html>
